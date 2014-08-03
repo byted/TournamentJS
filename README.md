@@ -4,6 +4,8 @@ Track your round-robin tournaments with this small in-browser app. This app was 
 
 Minified with [inliner](https://github.com/remy/inliner)
 
+[Live test](http://byted.github.io/TournamentJS/)
+
 **Pros**
 * plattform independent - runs in the browser
 * only a single HTML file
