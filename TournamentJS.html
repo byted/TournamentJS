@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- /******************
+        * TournamentJS
+        * byted @ github
+        * 
+        *******************/ -->
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <meta http-equiv="Content-Type" content=
+        "text/html; charset=utf-8">
+        <title>TournamentJS</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <script type="text/JavaScript" src="script.js"></script>       
+    </head>
+    <body onload="navigateTo('menu');addTeam();addTeam();autoSave(5);" onunload="save();">
+        <span style="display:none;" id="notification"></span>
+        <div id="navi" style="display:none">
+            <a href="#" id="navspielpan" onclick="navigateTo('fsspielplan');">Playing schedule</a>
+            <a href="#" id="navstat" onclick="updateTables();navigateTo('fsstat');">Statistics</a>
+            <a href="#" id="navtore" onclick="navigateTo('fstore');">Scorers</a>
+            <a href="#" id="navfairplay" onclick="navigateTo('fsfairplay');">Fair Play</a>
+            <a href="#" id="save" onclick="save()">Save</a>
+        </div>
+        <!--Fenster-->
+
+    <fieldset class="navi" id="menu">
+            <a href="#" title="Add team" id="addteam" onclick="addTeam()">Add team</a>
+            <label for="inputrrunde">Rematches: </label>
+            <input id="inputrrunde" type="checkbox" title="Rematches?" checked="checked">
+            <label for="input-show-fairplay">Fair Play: </label>
+            <input id="input-show-fairplay" type="checkbox" title="Track red and yellow cards?" checked="checked" onchange="toggleLists();">
+            <label for="input-show-scorers">Scorers: </label>
+            <input id="input-show-scorers" type="checkbox" title="Track goal scorers" checked="checked" onchange="toggleLists();">
+            <div id="teamliste"></div>
+        <div class="divcontentcenter">
+            <a href="#" title="Let's go!" id="losbutton" onclick="startTournament()">Let's go!</a>
+            <a href="#" style="display:none" title="Save" id="savebutton" onclick="save()">Save</a>
+            <div id="loadlink" class="textlink" onclick="load();">or load an exisiting tournament</div>
+            </div>
+        </fieldset>
+            
+        <fieldset class="navi" id="fsstat">
+            <table border="0" id="tabelle">
+                <thead>
+                    <tr>
+                        <th class="platz">#</th>
+                        <th class="team">Team</th>
+                        <th class="punkte">Punkte</th>
+                        <th class="spiele">Spiele</th>
+                        <th class="win">S</th>
+                        <th class="draw">U</th>
+                        <th class="lose">N</th>
+                        <th class="tore">Tore</th>
+                        <th class="ggt">GGT</th>
+                        <th class="diff">Diff</th>
+                    </tr>
+                </thead>
+                <tbody id="gametable"></tbody>
+            </table>
+            <table border="0" id="torschuetzen">
+                <thead>
+                    <tr>
+                        <th class="platz">#</th>
+                        <th class="team">Torschütze</th>
+                        <th class="punkte">Tore</th>
+                    </tr>
+                </thead>
+                <tbody id="bodytorschuetzen"></tbody>
+            </table>
+            <table border="0" id="fairplaytab">
+                <thead>
+                    <tr>
+                        <th class="platz">#</th>
+                        <th class="team">Unfairster Spieler</th>
+                        <th class="punkte">Punkte</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyfairplay"></tbody>
+            </table>
+        </fieldset>
+        <fieldset class="navi" id="fsspielplan">
+            <div id="spielplan"></div>
+        </fieldset>
+        <fieldset class="navi" id="fstore">
+            <a href="#" title="Add player" id="addteam" onclick="addGoalScorer()">Add scorer</a>
+            <div id="torschuetzenliste"></div>
+        </fieldset>
+        <fieldset class="navi" id="fsfairplay">
+            <a href="#" title="Add player" id="addteam" onclick="addFairPlay()">Add player</a>
+            <div id="fairplayliste"></div>
+        </fieldset>
+        <div id="savednbrs" style="display:none;">
+            <span id="matchNbr">0</span>
+            <span id="scorerNbr">0</span>
+            <span id="fairPlayNbr">0</span>
+            <span id="teamNbr">0</span>
+        </div>
+    </body>
+</html>
